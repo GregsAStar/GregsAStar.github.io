@@ -1,0 +1,38 @@
+ 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alphapwd Interactive</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="paperjs/paper-core.js"></script>
+        <script type="text/javascript" src="alphapwd.js"></script>
+    </head>
+    <body onload="main();">
+        <h1>Alphapwd</h1>
+        <h3><i>An interactive guide</i></h3>
+        <table id="divider">
+            <colgroup>
+                <col span="1" style="width: 65%">
+                <col span="1" style="width: 35%">
+            </colgroup>
+            <tr><tbody>
+                <td><canvas resize id="interactive">This website is not supported by your browser. Try an up-to-date version if Chrome or Firefox!</canvas></td>
+                <td>
+                    <div id="slideBody">
+                        <h2 id="slideTitle"></h2>
+                        <p id="slideText"></p>
+                    </div>
+                    <table id="navButtons"><tbody>
+                        <tr>
+                            <td><button id="buttonBack">Back</button></td>
+                            <td><button id="buttonNext">Next</button></td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tbody></tr>
+        </table>
+        <div id="preloaded-images">
+            <img src="assets/keyboard.png" width="1" height="1" id="img_keyboard"/>
+        </div>
+    </body>
+</html>
