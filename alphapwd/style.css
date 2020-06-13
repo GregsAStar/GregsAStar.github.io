@@ -5,18 +5,20 @@ body {
 
 h1 {
     color: white;
-    font-size: 4em;
+    font-size: 4vw;
     text-align: center;
     line-height: 0.5em;
 }
 
 h2 {
     color: white;
+    font-size: 1.3vw;
 }
 
 h3 {
     color: white;
     text-align: center;
+    font-size: 1.1vw;
 }
 
 canvas[resize] {
@@ -85,6 +87,7 @@ button:enabled:hover {
 #slideText {
     color: white;
     margin-right: 15px;
+    font-size: 0.9vw;
 }
 
 div#preloaded-images {
