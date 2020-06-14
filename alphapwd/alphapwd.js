@@ -31,7 +31,6 @@ function changeSlide(slide){
 }
 
 function draw(slide){
-    draw.slide = slide;
     draw.animationc = 0;
     if(typeof draw.init == 'undefined'){
         draw.canvas = document.getElementById("interactive");
@@ -184,6 +183,7 @@ function draw(slide){
             paper.project.layers[2].visible = true;
             break;
     }
+    draw.slide = slide;
 }
 
 function main(){
