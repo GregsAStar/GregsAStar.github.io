@@ -23,9 +23,14 @@ function changeSlide(slide){
     document.getElementById("slideText").innerHTML = slides[slide][1];
     buttonBack = document.getElementById("buttonBack");
     buttonNext = document.getElementById("buttonNext");
+    divSlide2 = document.getElementById("slide2");
+    divSlide3 = document.getElementById("slide3");
     
     buttonBack.disabled = (slide == 0);
     buttonNext.disabled = (slide == slides.length - 1);
+
+    divSlide2.style.display = ((slide == 2) ? "block" : "none");
+    divSlide3.style.display = ((slide == 3) ? "block" : "none");
 
     draw(slide);
 }
@@ -35,7 +40,6 @@ function draw(slide){
     if(typeof draw.init == 'undefined'){
         draw.canvas = document.getElementById("interactive");
         paper.setup(draw.canvas);
-        console.log(paper.view.size);
 
         /* LAYER 0 */
         draw.testtext = new paper.PointText(100,100);
@@ -47,10 +51,6 @@ function draw(slide){
         draw.keyboard = new paper.Raster("img_keyboard")
         draw.keyboard.position = paper.view.center;
         draw.keyboard.fitBounds(paper.view.bounds);
-
-        /*draw.coords = new paper.PointText(100, 100);
-        draw.coords.fillColor = "red";
-        draw.coords.content = "Coords";*/
 
         draw.password = new paper.PointText(30, paper.view.size.height*0.95);
         draw.password.fillColor = "white";
@@ -151,6 +151,23 @@ function draw(slide){
         paper.view.onMouseMove = function (event){
             
         }
+
+        document.getElementById("buttonClear").onclick = function(){
+            draw.userdrawings.removeChildren();
+        }
+
+        var password = document.getElementById("password");
+        password.addEventListener('input', function(){
+            var score = zxcvbn(password.value);
+            var text = document.getElementById("pStrength");
+            document.getElementById("meterStrength").value = score.score;
+            if (password.value !== "") {
+                text.innerHTML = "Strength: " + {0: "Extremely Weak", 1: "Very Weak", 2: "Weak", 3: "Strong", 4: "Very Strong"}[score.score]; 
+              } else {
+                text.innerHTML = "";
+              }
+        });
+
 
         draw.init = true;
     }
