@@ -2,15 +2,19 @@
 slides = [
     [
         "What is Alphapwd?",
-        "Sure, making your password \"password\" is very tempting, but as you might know, using a simple dictionary word or name puts your accounts at risk. But, you might ask, who is going to remember a password like \"$#W5heU%o28l\"?! Alphapwd is a password creation technique that makes passwords both easy to remember and secure. Click next to find out how it works!"
+        "Sure, making your password \"password\" is very tempting, but using a simple dictionary word or a name will make your password incredibly easy for hackers to guess, putting your accounts at risk. To keep yourself secure you want to use a long password with uppercase letters, lowercase letters, numbers, and sybols. But, you might ask, who is going to remember a password like \"$#W5heU%o28l\"?! This is where Alphapwd comes in. Alphapwd is a password creation technique that makes passwords both easy to remember <i>and</i> secure. Click next to find out how it works!"
     ],
     [
-        "Placeholder Heading",
-        "Placeholder body. Slide 2"
+        "How does it work?",
+        "We begin by choosing a short word that is easy to remember, known as the mnemonic. We will choose to use the word \"CAT\" as our mnemonic in our example shown on the left. For each letter in your mnemonic, you will pick a starting point on your keyboard and imagine yourself drawing that letter on the keyboard at that starting point. Make sure to remember your starting points! Press each key that you cross while \"drawing\" the letter over your keyboard. You should also use the SHIFT key in combination with the other keys at some interval you choose so that you type some symbols and uppercase letters. In the example on the left we used the SHIFT key on every other stroke, but you could also choose to switch on every other letter or every other key or any pattern you choose. Once you understand what we are going to do, click next to try it for yourself!"
     ],
     [
-        "Placeholder Heading",
-        "Placeholder body. Slide 3"
+        "Designing your password",
+        "Pick a short mnemonic and try drawing its letters on the keyboard image on the left. Make sure you cover letters as well as numbers and symbols. You can press the clear button below to return to a blank keyboard. Once you are happy with your placement of the letters, click next."
+    ],
+    [
+        "Testing your password",
+        "Now you can try typing your password in the box below. Remember to use the SHIFT key at some points as described earlier. When you type your password, trace the keys on your physical keyboard in the same way you did in your drawing. When you are done typing your password in the box, click the check button to test the strength of your password. If you have entered in your password correctly with uppercase letters, lowercase letters, numbers and symbols, you should have a \"very strong\" password. Click next for more information about Alphapwd."
     ]
 ]
 
@@ -45,9 +49,9 @@ function draw(slide){
         draw.keyboard.position = paper.view.center;
         draw.keyboard.fitBounds(paper.view.bounds);
 
-        draw.coords = new paper.PointText(100, 100);
+        /*draw.coords = new paper.PointText(100, 100);
         draw.coords.fillColor = "red";
-        draw.coords.content = "Coords";
+        draw.coords.content = "Coords";*/
 
         draw.password = new paper.PointText(30, paper.view.size.height*0.95);
         draw.password.fillColor = "white";
@@ -69,6 +73,14 @@ function draw(slide){
         draw.t_stroke_2 = new paper.Path();
         draw.t_stroke_2.strokeColor = "red";
         draw.t_stroke_2.strokeWidth = 5;
+
+        /* LAYER 2 */
+        new paper.Layer();
+        draw.keyboard2 = new paper.Raster("img_keyboard")
+        draw.keyboard2.position = paper.view.center;
+        draw.keyboard2.fitBounds(paper.view.bounds);
+
+        draw.userdrawings = new paper.Group();
 
         paper.view.onResize = function (){
             draw.keyboard.position = paper.view.center;
@@ -120,13 +132,25 @@ function draw(slide){
             draw.animationc++;
         }
         paper.view.onMouseDown = function (event){
-
+            switch(draw.slide){
+                case 2:
+                    draw.userdrawings.addChild(new paper.Path(event.point));
+                    draw.userdrawings.lastChild.strokeColor = "red";
+                    draw.userdrawings.lastChild.strokeWidth = 5;
+                    console.log("here");
+                    break;
+            }
         }
         paper.view.onMouseDrag = function (event){
-            
+            switch(draw.slide){
+                case 2:
+                    draw.userdrawings.lastChild.add(event.point);
+                    console.log("here2");
+                    break;
+            }
         }
         paper.view.onMouseMove = function (event){
-            draw.coords.content = "" + event.point;
+            
         }
 
         draw.init = true;
@@ -139,11 +163,26 @@ function draw(slide){
     draw.t_stroke_2.removeSegments();
     draw.password.content = "Password: ";
 
-    for(var i=0; i < slides.length; i++){
-        if (slide == i)
-            paper.project.layers[i].visible = true;
-        else
-            paper.project.layers[i].visible = false;
+    switch(slide){
+        case 0:
+            paper.project.layers[0].activate();
+            paper.project.layers[0].visible = true;
+            paper.project.layers[1].visible = false;
+            paper.project.layers[2].visible = false;
+            break;
+        case 1:
+            paper.project.layers[1].activate();
+            paper.project.layers[0].visible = false;
+            paper.project.layers[1].visible = true;
+            paper.project.layers[2].visible = false;
+            break;
+        case 2:
+        case 3:
+            paper.project.layers[2].activate();
+            paper.project.layers[0].visible = false;
+            paper.project.layers[1].visible = false;
+            paper.project.layers[2].visible = true;
+            break;
     }
 }
 

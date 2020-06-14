@@ -1,6 +1,7 @@
 body {
     background-color: #282828;
     font-size: 100%;
+    overflow: hidden;
 }
 
 h1 {
@@ -21,13 +22,13 @@ h3 {
     font-size: 1.1vw;
 }
 
-canvas[resize] {
+canvas {
     width: 100%;
     height: 100%;
 }
 
 table, td {
-    border: 1px solid black;
+    border: none;
 }
 
 #divider>tbody>tr>td:last-child {
@@ -46,7 +47,7 @@ table, td {
 }
 
 #divider {
-    position:absolute;
+    position: absolute;
     width: 100%;
     height: 65%;
 }
