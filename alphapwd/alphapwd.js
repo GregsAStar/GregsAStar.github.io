@@ -2,15 +2,15 @@
 slides = [
     [
         "What is Alphapwd?",
-        "Sure, making your password \"password\" is very tempting, but using a simple dictionary word or a name will make your password incredibly easy for hackers to guess, putting your accounts at risk. To keep yourself secure you want to use a long password with uppercase letters, lowercase letters, numbers, and symbols. But, you might ask, who is going to remember a password like \"$#W5heU%o28l\"?! This is where Alphapwd comes in. Alphapwd is a password creation technique that makes passwords both easy to remember <i>and</i> secure. Click next to find out how it works!"
+        "Sure, making your password \"password\" is very tempting, but using a simple dictionary word or a name will make your password incredibly easy for hackers to guess, putting your accounts at risk. To keep yourself secure you will want to use a long password with uppercase letters, lowercase letters, numbers, and symbols. But, you might ask, who is going to remember a password like \"$#W5heU%o28l\"?! This is what Alphapwd aims to solve. Alphapwd is a password creation technique that makes passwords both easy to remember <i>and</i> secure. Click next to find out how it works!"
     ],
     [
         "How does it work?",
-        "We begin by choosing a short word that is easy to remember, known as the mnemonic. We will choose to use the word \"CAT\" as our mnemonic in our example shown on the left. For each letter in your mnemonic, you will pick a starting point on your keyboard and imagine yourself drawing that letter on the keyboard at that starting point. Make sure to remember your starting points! Press each key that you cross while \"drawing\" the letter over your keyboard. You should also use the SHIFT key in combination with the other keys at some interval you choose so that you type some symbols and uppercase letters. In the example on the left we used the SHIFT key on every other stroke, but you could also choose to switch on every other letter or every other key or any pattern you choose. Once you understand what we are going to do, click next to try it for yourself!"
+        "We begin by choosing a short word that is easy to remember, known as the mnemonic. We will choose to use the word \"CAT\" as our mnemonic in the example shown on the left. For each letter in your mnemonic, you will pick a starting point on your keyboard and imagine yourself drawing that letter on the keyboard from that starting point. Make sure to remember your starting points! Press each key that you cross while \"drawing\" the letter over your keyboard. You should also use the SHIFT key in combination with the other keys at some interval you choose so that you type some symbols and uppercase letters. In the example on the left we used the SHIFT key on every other stroke, but you could also choose to switch on every other letter, every other key, or any pattern you choose. Once you understand what we are going to do, click next to try it for yourself!"
     ],
     [
         "Designing your password",
-        "Pick a short mnemonic and try drawing its letters on the keyboard image on the left. Make sure you cover letters as well as numbers and symbols. You can press the clear button below to return to a blank keyboard. Once you are happy with your placement of the letters, click next."
+        "Pick a short mnemonic and try drawing its letters on the keyboard image on the left. Make sure you cover letters as well as numbers and symbols. Ignore keys such as CAPS, TAB, CTRL, ALT, etc. You can press the clear button below to return to a blank keyboard. Once you are happy with your placement of the letters, click next."
     ],
     [
         "Testing your password",
@@ -18,7 +18,7 @@ slides = [
     ],
     [
         "Where did Alphapwd come from?",
-        "The idea behind Alphapwd comes from an article published by IEEE.<br>Citation: J. Song, D. Wang, Z. Yun and X. Han, \"Alphapwd: A Password Generation Strategy Based on Mnemonic Shape,\" in IEEE Access, vol. 7, pp. 119052-119059, 2019, doi: 10.1109/ACCESS.2019.2937030."
+        "The idea behind Alphapwd comes from an article published by IEEE.<br><br>Citation: J. Song, D. Wang, Z. Yun and X. Han, \"Alphapwd: A Password Generation Strategy Based on Mnemonic Shape,\" in IEEE Access, vol. 7, pp. 119052-119059, 2019, doi: 10.1109/ACCESS.2019.2937030."
     ],
 
 ]
