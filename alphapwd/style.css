@@ -27,7 +27,7 @@ canvas[resize] {
 }
 
 table, td {
-    border: none;
+    border: 1px solid black;
 }
 
 #divider>tbody>tr>td:last-child {
@@ -35,15 +35,27 @@ table, td {
     position: relative;
 }
 
+#divider>tbody>tr>td {
+    padding: 0 15px 0 15px;
+    position: relative;
+    height: 100%;
+}
+
+#divider>tbody>tr {
+    height: 100%;
+}
+
 #divider {
+    position:absolute;
     width: 100%;
+    height: 65%;
 }
 
 #navButtons {
     width: 100%;
     height: 7%;
     position: absolute;
-    top:93%;
+    top: 93%;
 }
 
 #navButtons tr td:last-child {
