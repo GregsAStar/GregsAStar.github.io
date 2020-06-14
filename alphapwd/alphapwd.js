@@ -108,6 +108,7 @@ function draw(slide){
         paper.view.onFrame = function (){
             switch(draw.slide){
                 case 0:
+                case 4:
                     for (var i=0; i<draw.randomtext.children.length; i++){
                         if (draw.randomtext.children[i].point.x < -100){
                             draw.randomtext.children[i].point = new paper.Point(paper.view.size.width, Math.floor(Math.random() * paper.view.size.height));
@@ -195,6 +196,7 @@ function draw(slide){
 
     switch(slide){
         case 0:
+        case 4:
             paper.project.layers[0].activate();
             paper.project.layers[0].visible = true;
             paper.project.layers[1].visible = false;
