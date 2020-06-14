@@ -2,7 +2,7 @@
 slides = [
     [
         "What is Alphapwd?",
-        "Sure, making your password \"password\" is very tempting, but using a simple dictionary word or a name will make your password incredibly easy for hackers to guess, putting your accounts at risk. To keep yourself secure you want to use a long password with uppercase letters, lowercase letters, numbers, and sybols. But, you might ask, who is going to remember a password like \"$#W5heU%o28l\"?! This is where Alphapwd comes in. Alphapwd is a password creation technique that makes passwords both easy to remember <i>and</i> secure. Click next to find out how it works!"
+        "Sure, making your password \"password\" is very tempting, but using a simple dictionary word or a name will make your password incredibly easy for hackers to guess, putting your accounts at risk. To keep yourself secure you want to use a long password with uppercase letters, lowercase letters, numbers, and symbols. But, you might ask, who is going to remember a password like \"$#W5heU%o28l\"?! This is where Alphapwd comes in. Alphapwd is a password creation technique that makes passwords both easy to remember <i>and</i> secure. Click next to find out how it works!"
     ],
     [
         "How does it work?",
@@ -14,8 +14,13 @@ slides = [
     ],
     [
         "Testing your password",
-        "Now you can try typing your password in the box below. Remember to use the SHIFT key at some points as described earlier. When you type your password, trace the keys on your physical keyboard in the same way you did in your drawing. When you are done typing your password in the box, click the check button to test the strength of your password. If you have entered in your password correctly with uppercase letters, lowercase letters, numbers and symbols, you should have a \"very strong\" password. Click next for more information about Alphapwd."
-    ]
+        "Now you can try typing your password in the box below. Remember to use the SHIFT key at some points as described earlier. When you type your password, trace the keys on your physical keyboard in the same way you did in your drawing. If you have entered in your password correctly with uppercase letters, lowercase letters, numbers and symbols, you should have a \"very strong\" password. You can also try the password \"43wsdVGYHNgh()_0pl\" which was the password from our example. Click next for more information about Alphapwd."
+    ],
+    [
+        "Where did Alphapwd come from?",
+        "The idea behind Alphapwd comes from an article published by IEEE.<br>Citation: J. Song, D. Wang, Z. Yun and X. Han, \"Alphapwd: A Password Generation Strategy Based on Mnemonic Shape,\" in IEEE Access, vol. 7, pp. 119052-119059, 2019, doi: 10.1109/ACCESS.2019.2937030."
+    ],
+
 ]
 
 function changeSlide(slide){
@@ -42,9 +47,15 @@ function draw(slide){
         paper.setup(draw.canvas);
 
         /* LAYER 0 */
-        draw.testtext = new paper.PointText(100,100);
-        draw.testtext.fillColor = "white";
-        draw.testtext.content = "Cool animation coming soon :) ...probably";
+        draw.randomtext = new paper.Group();
+        for(var i=0; i<50; i++){
+            var randx = Math.floor(Math.random() * paper.view.size.width);
+            var randy = Math.floor(Math.random() * paper.view.size.height);
+            draw.randomtext.addChild(new paper.PointText(randx, randy));
+            draw.randomtext.lastChild.fillColor = "lime";
+            draw.randomtext.lastChild.content = Math.floor(Math.random() * 2468).toString(2);
+            draw.randomtext.lastChild.fontSize = "1em";
+        }
 
         /* LAYER 1 */
         new paper.Layer();
@@ -97,6 +108,14 @@ function draw(slide){
         paper.view.onFrame = function (){
             switch(draw.slide){
                 case 0:
+                    for (var i=0; i<draw.randomtext.children.length; i++){
+                        if (draw.randomtext.children[i].point.x < -100){
+                            draw.randomtext.children[i].point = new paper.Point(paper.view.size.width, Math.floor(Math.random() * paper.view.size.height));
+                        } else if (draw.randomtext.children[i].point.x > paper.view.size.width){
+                            draw.randomtext.children[i].point = new paper.Point(-100, Math.floor(Math.random() * paper.view.size.height));
+                        }
+                        draw.randomtext.children[i].point.x += ((i % 2 == 1) ? 1 : -1);
+                    }
                     break;
                 case 1:
                     if (draw.animationc % 5 == 0){
@@ -145,9 +164,6 @@ function draw(slide){
                     draw.userdrawings.lastChild.add(event.point);
                     break;
             }
-        }
-        paper.view.onMouseMove = function (event){
-            
         }
 
         document.getElementById("buttonClear").onclick = function(){
