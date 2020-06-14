@@ -136,7 +136,6 @@ function draw(slide){
                     draw.userdrawings.addChild(new paper.Path(event.point));
                     draw.userdrawings.lastChild.strokeColor = "red";
                     draw.userdrawings.lastChild.strokeWidth = 5;
-                    console.log("here");
                     break;
             }
         }
@@ -144,7 +143,6 @@ function draw(slide){
             switch(draw.slide){
                 case 2:
                     draw.userdrawings.lastChild.add(event.point);
-                    console.log("here2");
                     break;
             }
         }
