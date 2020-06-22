@@ -17,8 +17,8 @@ slides = [
         "Now you can try typing your password in the box below. Remember to use the SHIFT key at some points as described earlier. When you type your password, trace the keys on your physical keyboard in the same way you did in your drawing. If you have entered in your password correctly with uppercase letters, lowercase letters, numbers and symbols, you should have a \"very strong\" password. You can also try the password \"43wsdVGYHNgh()_0pl\" which was the password from our example. Click next for more information about Alphapwd."
     ],
     [
-        "Where did Alphapwd come from?",
-        "The idea behind Alphapwd comes from an article published by IEEE.<br><br>Citation: J. Song, D. Wang, Z. Yun and X. Han, \"Alphapwd: A Password Generation Strategy Based on Mnemonic Shape,\" in IEEE Access, vol. 7, pp. 119052-119059, 2019, doi: 10.1109/ACCESS.2019.2937030."
+        "Conclusion",
+        "The idea behind Alphapwd comes from an article published by IEEE. The authors conducted a small study where they found that passwords could be created in 10 seconds on average. They also found that 90.91% of people could remember their passwords in the short term and 81.81% could remember their passwords in the long term. The time it took for people to remember their passwords was also fairly short. The authors also tested the strength of passwords made using the Alphapwd strategy and found them to be much stronger than dictionary words and on-par with other mnemonic based password strategies. These tests and studies show that Alphapwd passwords are both easy to remember and secure.<br><br>Citation: J. Song, D. Wang, Z. Yun and X. Han, \"Alphapwd: A Password Generation Strategy Based on Mnemonic Shape,\" in IEEE Access, vol. 7, pp. 119052-119059, 2019, doi: 10.1109/ACCESS.2019.2937030."
     ],
 
 ]
